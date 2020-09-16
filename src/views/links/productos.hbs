@@ -1,0 +1,74 @@
+{{> navbar }}
+
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-md-5"><div class="text-center"><h2>AGREGAR PRODUCTO</h2></div></div>
+      <div class="col-md-7"><div class="text-center"><h2>{{tituloTable}}</h2></div></div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card bg-info">
+          <div class="card-body">
+            <form action="" method="POST">
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-3 col-form-label text-white">Nombre</label>
+                <div class="col-sm-9">
+                  <input name="nombre" type="text" class="form-control" id="staticEmail" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label text-white">Codigo</label>
+                <div class="col-sm-9">
+                  <input name="codigo" type="text" class="form-control" id="inputPassword" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label text-white">Valor</label>
+                <div class="col-sm-9">
+                  <input name="valor" type="number" class="form-control" id="inputPassword" min="0" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success btn-block">Agregar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7">
+        <table class="table" id="infoTable">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Codigo</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each productos}}
+              <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{nombre}}</td>
+                <td>{{codigo}}</td>
+                <td>${{valor}}</td>
+                <td class="text-center">
+                  <a  class="btn btn-info" data-toggle="modal" data-target="#modalModifyPedido{{id}}">
+                    <span class="material-icons">
+                      create
+                    </span>
+                  </a>
+                  <a href="delete-product/{{id}}" class="btn btn-danger">
+                    <span class="material-icons">
+                      delete
+                    </span>
+                  </a>
+                </td>
+              </tr>
+              {{> modalPedido }}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

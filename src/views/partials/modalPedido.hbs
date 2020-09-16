@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div class="modal fade" id="modalModifyPedido{{id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary">
+        <h5 class="modal-title text-white" id="staticBackdropLabel">Modificar información</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="editar-producto/{{id}}" method="POST">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre: </label>
+            <input type="text" class="form-control" name="nombreProducto" value="{{nombre}}">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Codigo:</label>
+            <input type="text" class="form-control" name="codigoProducto" value="{{codigo}}">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Valor: $</label>
+            <input type="number" class="form-control" name="valorProducto" value="{{valor}}">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

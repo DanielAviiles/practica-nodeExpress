@@ -1,0 +1,52 @@
+<div class="row mb-2">
+  <div class="col-md-3">
+    <h2>{{tituloTable}}</h2>
+  </div>
+  <div class="col-md-9">
+    <a  class="btn btn-success float-right" data-toggle="modal" data-target="#realizarPedido">Agregar Pedido</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table" id="infoTable">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Usuario</th>
+          <th scope="col" style="height: 50px;width: 220px;">Cantidad</th>
+          <th scope="col">Valor Unitario</th>
+          <th scope="col">Valor Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each pedidos}}
+          <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{nombreproducto}}</td>
+            <td>{{nombreusuario}}</td>
+            <td>
+              <form action="editar-pedido/{{id}}" method="POST">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-secondary material-icons" type="submit" name="less">remove</button>
+                  </div>
+                  <div class="custom-file">
+                    <input type="text" readonly class="form-control" value="{{cantidad}}" name="cantidadProducto">
+                  </div>
+                  <div class="input-group-append">
+                    <button class="btn btn-primary material-icons" type="submit" name="plus">add</button>
+                  </div>
+                </div>
+              </form>
+            </td>
+            <td>${{valor}}</td>
+            <td>${{math cantidad "*" valor}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    {{> modal_realizar_pedido}}
+  </div>
+</div>
