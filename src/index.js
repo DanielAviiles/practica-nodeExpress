@@ -15,20 +15,7 @@ app.engine('.hbs', exphbs({
   layoutsDir: path.join(app.get('views'), 'layouts'),
   partialsDir: path.join(app.get('views'), 'partials'),
   extname: '.hbs',
-  // helpers: require('./lib/handlebars')
-  helpers: {
-    math: function (lvalue, operator, rvalue) {
-      lvalue = parseFloat(lvalue);
-      rvalue = parseFloat(rvalue);
-      return {
-        "+": lvalue + rvalue,
-        "-": lvalue - rvalue,
-        "*": lvalue * rvalue,
-        "/": lvalue / rvalue,
-        "%": lvalue % rvalue,
-      }[operator];
-    }
-  }
+  helpers: require('./lib/handlebars')
 }));
 app.set('view engine', '.hbs');
 

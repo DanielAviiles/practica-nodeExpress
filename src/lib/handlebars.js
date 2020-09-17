@@ -1,4 +1,4 @@
-const hbs = require('hbs');
+const hbs = require('handlebars');
 
 hbs.registerHelper('valorTotalPedido', (valor, cantidad) => {
   let multiplicacion = valor * cantidad;
