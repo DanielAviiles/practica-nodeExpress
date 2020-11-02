@@ -8,7 +8,7 @@ router.get('/usuarios', async (req, res) => {
   res.render('links/usuarios', { tituloTable: 'USUARIOS', user });
 });
 
-router.get('/docentes', async (req, res) => {
+router.get('/docentes',  async (req, res) => {
   const user = await pool.query('SELECT usuarios.id, usuarios.nombre, usuarios.usuario, usuarios.paswd, usuarios.edad FROM usuarios WHERE usuarios.rol_id=1');
   res.render('links/docentes', {tituloTable:'DOCENTES',user});
 });
